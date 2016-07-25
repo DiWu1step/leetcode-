@@ -1,0 +1,23 @@
+public class Solution {
+    public void rotate(int[] nums, int k) {
+        int len = nums.length;
+        int temp=nums[0],pre = nums[0],start = -1;
+        int next_index = 0;
+        int index=0;
+        int cnt=1;
+        while(cnt<=len){
+            next_index = (k+index)%len;
+            temp = nums[next_index];
+            nums[next_index]=pre;
+            pre = temp; 
+            cnt++;
+           if(next_index == start && cnt <= len){
+                index = next_index + 1;
+                pre = nums[index];
+                start = index;
+            }else{
+                index = next_index;
+            }
+        }
+    }
+}
